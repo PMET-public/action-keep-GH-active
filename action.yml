@@ -3,4 +3,4 @@ description: ''
 author: 'Keith Bentrup'
 runs:
   using: 'node12'
-  main: 'setup.js'
+  main: 'index.js'
