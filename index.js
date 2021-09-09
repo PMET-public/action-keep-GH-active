@@ -10,22 +10,31 @@ async function run() {
     //    with:
     //      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    const token = core.getInput('GITHUB_TOKEN')
-    const owner = core.getInput('GITHUB_OWNER')
-    const repo = core.getInput('GITHUB_REPOSITORY')
+    const token = core.getInput('GITHUB_TOKEN') || process.env.GITHUB_TOKEN
+    const repo = process.env.GITHUB_REPOSITORY
+    let [owner] = repo.split('/',1),
+      project = repo.slice(repo.indexOf('/')+1)
 
-    const octokit = github.getOctokit('token')
+    const octokit = github.getOctokit(token)
 
-    const { data: pullRequest } = await octokit.rest.pulls.get({
+    // https://docs.github.com/en/rest/reference/repos#create-a-commit-status
+
+    const { data: prevStatuses } = await octokit.request('GET /repos/{owner}/{repo}/statuses/{commit_sha}', {
       owner: owner,
-      repo: repo,
-      pull_number: 1,
-      mediaType: {
-        format: 'diff'
-      }
+      repo: project,
+      commit_sha: process.env.GITHUB_SHA,
     });
 
-    console.log(pullRequest);
+    const { data: newStatus } = await octokit.request('POST /repos/{owner}/{repo}/statuses/{commit_sha}', {
+      owner: owner,
+      repo: project,
+      commit_sha: process.env.GITHUB_SHA,
+      state: 'pending',
+      description: new Date()
+    });
+
+    console.log(prevStatuses, newStatus);
+
 
   } catch (error) {
     core.setFailed(error.message);
