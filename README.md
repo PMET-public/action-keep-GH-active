@@ -7,3 +7,6 @@ For example, when your project relies on 3rd party code that may be updated at a
 
 ## Solution?
 So can we keep a project "active" past 60 days automatically? Well, it depends on GH and what counts as ["active"](https://github.community/t/no-notification-workflow-disabled-after-60-days/182169/7). In this GH action, we try to keep a project active with minimum activity and permission. We start by creating a new GH token and granting it the `repo:status` scope to [prevent access to the code](https://docs.github.com/en/developers/apps/building-oauth-apps/scopes-for-oauth-apps), but hopefully, it's enough to keep the project active.
+
+## Reference
+https://github.com/actions/javascript-action
