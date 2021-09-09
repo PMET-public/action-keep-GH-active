@@ -10,7 +10,6 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          # - macos-latest
     steps:
       - uses: PMET-public/action-keep-GH-active@master
         with:
