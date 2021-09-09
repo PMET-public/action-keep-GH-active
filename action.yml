@@ -1,0 +1,6 @@
+name: 'Keep GH active'
+description: ''
+author: 'Keith Bentrup'
+runs:
+  using: 'node12'
+  main: 'setup.js'
