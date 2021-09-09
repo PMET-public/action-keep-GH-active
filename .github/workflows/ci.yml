@@ -11,6 +11,7 @@ jobs:
         os:
           - ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - uses: PMET-public/action-keep-GH-active@master
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
