@@ -16,11 +16,9 @@ jobs:
         with:
           node-version: '12'
       - run: npm ci
-      - run: node index.js
-      # - run: npm install
-      # - uses: PMET-public/action-keep-GH-active@master
-      #   with:
-      #     gh-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: .
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: keep alive to debug
         if: ${{ failure() }}
         uses: PMET-public/action-tmate@master
