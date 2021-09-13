@@ -2,7 +2,7 @@ name: 'Keep GH active'
 description: ''
 author: 'Keith Bentrup'
 inputs:
-  gh_token:
+  gh-token:
     description: 'token with repo:status privileges'
 runs:
   using: 'node12'
