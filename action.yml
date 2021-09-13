@@ -2,8 +2,9 @@ name: 'Keep GH active'
 description: ''
 author: 'Keith Bentrup'
 inputs:
-  gh-token:
-    description: 'token with repo:status privileges'
+  GITHUB_TOKEN:
+    description: 'GitHub token'
+    required: true
 runs:
   using: 'node12'
   main: 'index.js'

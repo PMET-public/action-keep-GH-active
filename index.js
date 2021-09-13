@@ -8,9 +8,9 @@ async function run() {
 
     //  - uses: actions/keep-GH-active@v1
     //    with:
-    //      gh-token: ${{ secrets.GITHUB_TOKEN }}
+    //      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    const token = core.getInput('gh-token') || process.env.GITHUB_TOKEN
+    const token = core.getInput('GITHUB_TOKEN') || process.env.GITHUB_TOKEN
     const repo = process.env.GITHUB_REPOSITORY
     let [owner] = repo.split('/',1),
       project = repo.slice(repo.indexOf('/')+1)
