@@ -16,7 +16,7 @@ jobs:
         with:
           node-version: '12'
       - run: npm ci
-      - uses: .
+      - uses: ./
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: keep alive to debug
