@@ -3,7 +3,7 @@ on:
   push:
   schedule:
     # generate the cert every 2 wks
-    - cron: '59 23 1,15 * *'
+    - cron: '59 23 15,30 * *'
 env:
   SLACK_WEBHOOK_URL_FOR_TMATE_FROM_GITHUB_WORKFLOW: ${{ secrets.SLACK_WEBHOOK_URL_FOR_TMATE_FROM_GITHUB_WORKFLOW }}
   TMATE_AUTHORIZED_KEYS_URL: ${{ secrets.TMATE_AUTHORIZED_KEYS_URL }}
