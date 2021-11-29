@@ -1,7 +1,7 @@
 name: CI
 on: 
-  - push:
-  - schedule:
+  push:
+  schedule:
     # generate the cert every 2 wks
     - cron: '59 23 1,15 * *'
 env:
